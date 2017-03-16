@@ -1,10 +1,14 @@
+% Author: Andreas Ejupi (andreas@ejupi.at)
+
+%% data loading
+
 clear; close all; 
 path = '/Users/Zero/Desktop/heart_rate_data/young_adults/20170203_MXT_Session1_Sternum_Calibrated_SD.csv'; 
 df_orig = dlmread(path, '\t', 5, 0);
 
-%%
-% define columns/ sampling rate
+%% ecg analysis
 
+% define columns/ sampling rate
 Fs = 128; %Hz
 
 XACC = 2; 
@@ -136,7 +140,7 @@ h.Enable = 'on';
 
 linkaxes(sp,'x');
 
-%%
+%% heart rate calculation
 
 % remove selected points (brushing)
 if exist('remove') && ~isempty(remove) 
